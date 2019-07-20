@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
-    <title>Github Finder</title>
+    <title>Github Search</title>
 
     
 </head>
@@ -13,19 +13,19 @@
     <nav class="navbar navbar-dark bg-danger mb-3">
         <div class="container">
             
-            <a href="/" class = "navbar-brand">Github Kullanıcı Bulma</a>
+            <a href="/" class = "navbar-brand">Github User Finder</a>
         </div>
     </nav>
     <div class="container searchContainer">
         <div class="search card card-body">
-            <h3>Github Kullanıcılarını Arayın</h3>
+            <h3>Search Github Users</h3>
             <p class="lead">
-                Bir kullanıcı adı girin ve kullanıcının bilgilerine ulaşın!
+              Enter a username and access the user's information!
             </p>
             <form action="/" method="post">
-                <input type="text" name="githubname" class = "form-control" placeholder="Github Kullanıcı adı">
+                <input type="text" name="githubname" class = "form-control" placeholder="Github Username">
                 <br>
-                <button type = "submit" class ="btn btn-danger">Ara</button>
+                <button type = "submit" class ="btn btn-danger">Submit Search</button>
             </form>
         </div>
         <br>
@@ -36,36 +36,36 @@
                     <div class="row">
                       <div class="col-md-3">
                         <img class="img-fluid mb-2" src="{{profile.avatar_url}}">
-                        <a href="{{profile.html_url}}" target="_blank" class="btn btn-danger btn-block mb-4">Profili Görüntüle</a>
+                        <a href="{{profile.html_url}}" target="_blank" class="btn btn-danger btn-block mb-4">View profile</a>
                       </div>
                       <div class="col-md-9">
-                        <span class="badge badge-primary">Repo Sayısı: {{profile.public_repos}} </span>
-                        <span class="badge badge-secondary">Gist Sayısı: {{profile.public_gists}} </span>
-                        <span class="badge badge-success">Takipçi: {{profile.followers}} </span>
-                        <span class="badge badge-info">Takip Edilen: {{profile.following}}</span>
+                        <span class="badge badge-primary">Number of Repoistory: {{profile.public_repos}} </span>
+                        <span class="badge badge-secondary">Number of Gist: {{profile.public_gists}} </span>
+                        <span class="badge badge-success">Followers: {{profile.followers}} </span>
+                        <span class="badge badge-info">Followed: {{profile.following}}</span>
                         <br><br>
                         <ul class="list-group">
-                          <li class="list-group-item">Şirket: {{profile.company}}</li>
+                          <li class="list-group-item">Company: {{profile.company}}</li>
                           <li class="list-group-item">Website/Blog:{{profile.blog}}</li>
-                          <li class="list-group-item">Yer:{{profile.location}}</li>
-                          <li class="list-group-item">Ne zamandan beri üye:{{profile.created_at}}</li>
+                          <li class="list-group-item">Location:{{profile.location}}</li>
+                          <li class="list-group-item">Member since:{{profile.created_at}}</li>
                         </ul>
                       </div>
                     </div>
                   </div>
-                  <h3 class="page-heading mb-3">En son repolar</h3>
+                  <h3 class="page-heading mb-3">Latest repos</h3>
                   <div id="repos" style ="margin-bottom: 100px;">
                     {% for repo in repos %}
                     <div class="card card-body mb-2">
                         <div class="row">
                           <div class="col-md-6">
                             <span>{{repo.name}}</span> 
-                            <a href="{{repo.html_url}}" target = "_blank" class = "btn btn-danger"> Repoya Git</a>
                           </div>
                           <div class="col-md-6">
-                          <span class="badge badge-primary">Yıldızlar: {{repo.stargazers_count}} </span>
-                          <span class="badge badge-primary">İzleyiciler: {{repo.watchers}}</span>
-                          <span class="badge badge-success">Forklar:{{repo.forks}}</span>
+                            <a href="{{repo.html_url}}" target = "_blank" class = "badge badge-success"> Go to Repo</a>  
+                            <span class="badge badge-primary">stars: {{repo.stargazers_count}} </span>
+                            <span class="badge badge-primary">audience: {{repo.watchers}}</span>
+                            <span class="badge badge-primary">Fork:{{repo.forks}}</span>
                           </div>
                         </div>
                 </div>
