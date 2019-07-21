@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <title>Github Search</title>
-
-    
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-danger mb-3">
+    <nav class="navbar navbar-dark bg-col mb-3">
         <div class="container">
             
             <a href="/" class = "navbar-brand">Github User Finder</a>
@@ -25,7 +24,7 @@
             <form action="/" method="post">
                 <input type="text" name="githubname" class = "form-control" placeholder="Github Username">
                 <br>
-                <button type = "submit" class ="btn btn-danger">Submit Search</button>
+                <button type = "submit" class ="btn btn-col">Submit Search</button>
             </form>
         </div>
         <br>
@@ -36,19 +35,19 @@
                     <div class="row">
                       <div class="col-md-3">
                         <img class="img-fluid mb-2" src="{{profile.avatar_url}}">
-                        <a href="{{profile.html_url}}" target="_blank" class="btn btn-danger btn-block mb-4">View profile</a>
+                        <a href="{{profile.html_url}}" target="_blank" class="btn btn-col btn-block mb-4">View profile</a>
                       </div>
                       <div class="col-md-9">
-                        <span class="badge badge-primary">Number of Repoistory: {{profile.public_repos}} </span>
+                        <span class="badge badge-primary">Number of Public Repoistory: {{profile.public_repos}} </span>
                         <span class="badge badge-secondary">Number of Gist: {{profile.public_gists}} </span>
                         <span class="badge badge-success">Followers: {{profile.followers}} </span>
                         <span class="badge badge-info">Followed: {{profile.following}}</span>
                         <br><br>
                         <ul class="list-group">
                           <li class="list-group-item">Company: {{profile.company}}</li>
-                          <li class="list-group-item">Website/Blog:{{profile.blog}}</li>
-                          <li class="list-group-item">Location:{{profile.location}}</li>
-                          <li class="list-group-item">Member since:{{profile.created_at}}</li>
+                          <li class="list-group-item">Website/Blog: {{profile.blog}}</li>
+                          <li class="list-group-item">Location: {{profile.location}}</li>
+                          <li class="list-group-item">Member since: {{profile.created_at}}</li>
                         </ul>
                       </div>
                     </div>
@@ -69,19 +68,14 @@
                           </div>
                         </div>
                 </div>
-                    {% endfor %}    
-                    
-                    <!--  -->
-                               
-                    <!--- Repoların Gösterileceği Kısım" -->
+                    {% endfor %}
                   </div> 
-                  hr
             
         </div>
         {% else %}
 
             {% if error %}
-            <div class ="alert alert-danger">
+            <div class ="alert alert-col">
                 {{error}}
             </div>
 
